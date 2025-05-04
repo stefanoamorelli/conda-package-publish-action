@@ -18,9 +18,11 @@ check_if_meta_yaml_file_exists() {
 
 build_package(){
     conda config --set anaconda_upload yes
-    conda build -c conda-forge -c bioconda .
+    conda build -c conda-forge .
 }
 
+
+export ANACONDA_API_TOKEN=$INPUT_ANACONDATOKEN
 
 go_to_build_dir
 check_if_meta_yaml_file_exists
